@@ -1,0 +1,29 @@
+<div class="card-body"><h1>Cerebros</h1>
+    <table class="table" style="background-image: url(../assets/images/wood.jpg); padding-bottom: 20px;">
+        <thead>
+        <tr>
+            <th><h3 style="color: white;">Numero</h3></th>
+            <th><h3 style="color: white;">Sabor</h3></th>
+            <th><h3 style="color: white;">IQ</h3></th>
+            <th><h3 style="color: white;">Descripcion</h3></th>
+            <th><h3 style="color: white;">Imagen</h3></th>
+            <th><h3 style="color: white;">Acciones</h3></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cerebro of cerebros | async; let i = index">
+            <th scope="row"><h5 style="color: white;"> {{ i+1 }} </h5></th>
+            <td><h5 style="color: white;">{{ cerebro.flavor }}</h5></td>
+            <td><h5 style="color: white;">{{ cerebro.iq }}</h5></td>
+            <td><h5 style="color: white;">{{ cerebro.description}}</h5></td>
+            <td><h5 style="color: white;">{{ cerebro.picture }}</h5></td>
+            <td>
+                <button (click)="guardarDatos(cerebro._id,cerebro.flavor,cerebro.iq,cerebro.description,cerebro.picture)" type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target="#modalActualizarCerebro">Editar Zombie <i class="fas fa-edit" title="Editar"></i></button>
+                <button (click)="guardarID(cerebro._id)" type="button" class="btn mr-2 mb-2 btn-danger" data-toggle="modal" data-target="#modalEliminarCerebro">Eliminar Zombie <i class="fas fa-trash" title="Editar"></i></button>
+            </td> 
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modalCerebro">Agregar Cerebro</button>
+</div>

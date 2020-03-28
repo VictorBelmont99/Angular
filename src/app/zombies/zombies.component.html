@@ -1,0 +1,27 @@
+<div class="card-body"><h1>Zombies</h1>
+    <table class="table" style="background-image: url(../assets/images/wood.jpg);">
+        <thead>
+        <tr>
+            <th><h3 style="color: white;">Numero</h3></th>
+            <th><h3 style="color: white;">Nombre</h3></th>
+            <th><h3 style="color: white;">Correo</h3></th>
+            <th><h3 style="color: white;">Tipo</h3></th>
+            <th><h3 style="color: white;">Acciones</h3></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let zombie of zombies | async; let i = index">
+            <th scope="row"><h5 style="color: white;"> {{ i+1 }} </h5></th>
+            <td><h5 style="color: white;">{{ zombie.name }}</h5></td>
+            <td><h5 style="color: white;">{{ zombie.email }}</h5></td>
+            <td><h5 style="color: white;">{{ zombie.type }}</h5></td>
+            <td>
+                <button (click)="guardarDatos(zombie._id,zombie.name,zombie.email,zombie.type)" type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target="#modalActualizar">Editar Zombie <i class="fas fa-edit" title="Editar"></i></button>
+                <button (click)="guardarId(zombie._id)" type="button" class="btn mr-2 mb-2 btn-danger" data-toggle="modal" data-target="#modalEliminar">Eliminar Zombie <i class="fas fa-trash" title="Editar"></i></button>
+            </td> 
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal">Agregar Zombie</button>
+</div>
